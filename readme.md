@@ -16,6 +16,6 @@ git pull origin master
 
 #### Importante:
 
-Si llegaran a hacer cambios sobre estos archivos a modo de prueba, deben tener en cuenta que antes del pull necesitan hacer un `git commit -m "mis ajustes"``.
+Si llegaran a hacer cambios sobre estos archivos a modo de prueba, deben tener en cuenta que antes del pull necesitan hacer un `git commit -m "mis ajustes"`.
 
-*Enjoy it! * :ok_hand:
+*Enjoy it!* :ok_hand:
