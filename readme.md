@@ -3,6 +3,7 @@
 En el presente repositorio se irán publicando el clase a clase de los archivos elaborados como ejemplo. La idea con el mismo es que lo puedan ir tomando como referencia para las ejercitaciones y futuras tareas en el *Proyecto Integrador*.
 
 - [Clase 01](/clase01/)
+- [Clase 01 - Repaso](/clase01-repaso/)
 
 > *Tengan en cuenta que para poder tener este mismo repositorio en sus máquinas deberán seguir los siguientes pasos*
 
