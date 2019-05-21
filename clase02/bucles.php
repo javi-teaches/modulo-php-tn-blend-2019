@@ -139,6 +139,45 @@
 		$i++;
 	} while ($palabras[$i] != 'basta' && $i < count($palabras) - 1);
 
+	$ceu = [
+		"Argentina" => [
+			"ciudades" => ["Buenos Aires", "Córdoba", "Santa Fé"],
+			"esAmericano" => true,
+		],
+		"Brasil" => [
+			"ciudades" => ["Brasilia", "Rio de Janeiro", "Sao Pablo"],
+			"esAmericano" => true,
+		],
+		"Colombia" => [
+			"ciudades" => ["Cartagena", "Bogota", "Barranquilla"],
+			"esAmericano" => true,
+		],
+		"Francia" => [
+			"ciudades" => ["Paris", "Nantes", "Lyon"],
+			"esAmericano" => false,
+		],
+		"Italia" => [
+			"ciudades" => ["Roma", "Milan", "Venecia"],
+			"esAmericano" => false,
+		],
+		"Alemania" => [
+			"ciudades" => ["Munich", "Berlin", "Frankfurt"],
+			"esAmericano" => false,
+		],
+	];
+
+	foreach ($ceu as $pais => $dataDelPais) {
+		if ( $dataDelPais["esAmericano"] ) {
+			echo "<p>Las ciudades de $pais son:</p>";
+			echo "<ul>";
+			foreach ($dataDelPais["ciudades"] as $unaCiudad) {
+				echo "<li> $unaCiudad </li>";
+			}
+			echo "</ul>";
+		}
+
+	}
+
 ?>
 <br>
 <br>
