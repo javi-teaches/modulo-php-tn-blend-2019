@@ -7,6 +7,7 @@ En el presente repositorio se irán publicando el clase a clase de los archivos 
 - [Clase 02 - Bucles y embed - Kitchening resuelto + Paises resuelto](/clase02/)
 - [Clase 03 - Funciones y Scope - Craftsy resuelto](/clase03/)
 - [Clase 04 - GET y POST](/clase04/)
+- [Clase 04 - Repaso - require, foreach, GET y POST](/registro-login/)
 
 > *Tengan en cuenta que para poder tener este mismo repositorio en sus máquinas deberán seguir los siguientes pasos:*
 
