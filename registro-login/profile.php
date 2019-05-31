@@ -1,4 +1,9 @@
 <?php
+
+	require_once 'register-controller.php';
+
+	$allUsers = getAllUsers();
+
 	$pageTitle = 'Profile';
 	require_once 'partials/head.php';
 ?>
@@ -6,14 +11,16 @@
 
 	<div class="container">
 		<div class="row">
-			<div class="col-md-4">
-				<br>
-				<h2>Hola Usuario</h2>
-				<img src="images/user-default.png" alt="imagen usuario">
-				<br><br>
-				<a href="#" class="btn btn-info">usuario@email.com</a>
-				<a href="#" class="btn btn-danger">Editar información</a>
-			</div>
+			<?php foreach ($allUsers as $oneUser): ?>
+				<div class="col-md-4">
+					<br>
+					<h2>Hola <?= $oneUser['name']; ?></h2>
+					<img src="<?= $oneUser['laImagenFinal']; ?>" alt="imagen usuario">
+					<br><br>
+					<a href="#" class="btn btn-info"><?= $oneUser['email']; ?></a>
+					<a href="#" class="btn btn-danger">Editar información</a>
+				</div>
+			<?php endforeach; ?>
 		</div>
 	</div>
 

@@ -1,4 +1,5 @@
 <?php
+
 	// Traigo las funciones que controlan mi sistema de Registro y Login
 	require_once 'register-controller.php';
 
@@ -29,6 +30,16 @@
 		// if ( count($errorsInRegister) == 0 ) {
 		// if ( count($errorsInRegister) ) {
 		if ( !$errorsInRegister ) {
+
+			// Guardar la imagen y obtener el nombre de la imagen
+			$imgName = saveImage($_FILES['avatar']);
+
+			// Le asignamos a $_POST una posición "avatar"
+			$_POST['laImagenFinal'] = $imgName;
+			
+			// Guardo al usuario
+			saveUser();
+
 			header('location: profile.php');
 			exit;
 		}
@@ -47,7 +58,7 @@
 			<div class="col-md-10">
 				<h2>Formulario de registro</h2>
 
-				<form method="post">
+				<form method="post" enctype="multipart/form-data">
 					<div class="row">
 						<div class="col-md-6">
 							<div class="form-group">
@@ -121,6 +132,11 @@
 									<label class="custom-file-label">Choose file...</label>
 								</div>
 							</div>
+							<?php if ( isset($errorsInRegister['inAvatar']) ) : ?>
+								<div class="alert alert-danger">
+									<?= $errorsInRegister['inAvatar']; ?>
+								</div>
+							<?php endif; ?>
 						</div>
 						<div class="col-12">
 							<button type="submit" class="btn btn-primary">Registrarse</button>
