@@ -1,7 +1,11 @@
 <?php
-
 	// Traigo las funciones que controlan mi sistema de Registro y Login
-	require_once 'register-controller.php';
+	require_once 'register-login-controller.php';
+
+	if ( isLogged() ) {
+		header('location: profile.php');
+		exit;
+	}
 
 	$countries = [
 		'ar' => 'Argentina',
@@ -18,13 +22,10 @@
 
 		$fullNameInPost = trim($_POST['name']);
 		$emailInPost = trim($_POST['email']);
+		$countryInPost = $_POST['country'];
 
 		// Ejecuto la función registerValidate y guardo lo que retorna en una variable local de este archivo
 		$errorsInRegister = registerValidate();
-
-		// echo "<pre>";
-		// print_r($errorsInRegister);
-		// echo "</pre>";
 
 		// Si el array de errores $errorsInRegister está vacío
 		// if ( count($errorsInRegister) == 0 ) {
@@ -36,7 +37,7 @@
 
 			// Le asignamos a $_POST una posición "avatar"
 			$_POST['laImagenFinal'] = $imgName;
-			
+
 			// Guardo al usuario
 			saveUser();
 
@@ -114,7 +115,10 @@
 								<select name="country" class="form-control">
 									<option value="">Elegí un país</option>
 									<?php foreach ($countries as $code => $country): ?>
-										<option value="<?= $code ?>"> <?= $country ?> </option>
+										<option
+											value="<?= $code ?>"
+											<?= isset($countryInPost) && $countryInPost == $code ? 'selected' : '';  ?>
+										> <?= $country ?> </option>
 									<?php endforeach; ?>
 								</select>
 							</div>

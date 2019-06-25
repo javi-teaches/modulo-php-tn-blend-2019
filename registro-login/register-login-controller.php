@@ -1,4 +1,10 @@
 <?php
+	session_start();
+
+	if ( isset($_COOKIE['userEmail']) ) {
+		$user = getUserByEmail($_COOKIE['userEmail']);
+		$_SESSION['userLogged'] = $user;
+	}
 
 	function registerValidate () {
 		// Creo un array de errores vacío
@@ -78,9 +84,8 @@
 		$usersList[] = $_POST;
 
 		// 3. Volver a guardar a todos los usuarios con éste último
-		file_put_contents('data/users.json', json_encode($usersList));
+		file_put_contents('data/users.json', json_encode($usersList, JSON_PRETTY_PRINT));
 	}
-
 
 	function emailExist($email) {
 		// 1. Traigo a todos los usuarios
@@ -101,7 +106,6 @@
 		return  json_decode(file_get_contents('data/users.json'), true);
 	}
 
-
 	function saveImage($file) {
 		// 1. Obtengo el nombre de la imagen
 		$name = $file['name'];
@@ -120,4 +124,82 @@
 		move_uploaded_file($tempFile,  $finalPath);
 
 		return $finalPath;
+	}
+
+	function loginValidate() {
+		// Creo un array de errores vacío
+		$errors = [];
+
+		// Guardo lo que vino en post en la posición 'name'
+		$email = trim($_POST['email']);
+		$password = trim($_POST['password']);
+
+		// Si $email está vació
+		if ( empty($email) ) {
+			// Seteo en el array de errores la posición 'inEmail'
+			$errors['inEmail'] = 'El campo correo electrónico es obligatorio';
+		} elseif ( !filter_var($email, FILTER_VALIDATE_EMAIL) ) { // Si NO es un formato de correo electrónico
+			$errors['inEmail'] = 'Escribí un formato de correo válido';
+		} elseif ( !emailExist($email) ) {
+			$errors['inEmail'] = 'Ese usuario no está registrado';
+		} else {
+			// Si el email existe en mi DB, traigo toda la data del usuario
+			$theUser = getUserByEmail($email);
+
+			if ( !password_verify($password, $theUser['password']) ) {
+				$errors['inPassword'] = 'Las crendenciales no coinciden';
+			}
+		}
+
+		// Si $password está vació
+		if ( empty($password) ) {
+			// Seteo en el array de errores la posición 'inPassword'
+			$errors['inPassword'] = 'La contraseña no puede estar vacía';
+		} elseif ( strlen($password) < 5 ) { // Si la longitud es inferior a 5 caracteres
+			$errors['inPassword'] = 'La contraseña debe tener 5 letras o más';
+		}
+
+		// Retorno el array de errores
+		return $errors;
+	}
+
+	function getUserByEmail($email) {
+		// 1. Traigo a todos los usuarios
+		$allUsers = getAllUsers();
+
+		// 2. Recorrer el array y preguntar si está el email
+		foreach ($allUsers as $oneUser) {
+			if ($oneUser['email'] == $email) {
+				// Si me encontré con el email que busco, retorno al usuario
+				return $oneUser;
+			}
+		}
+
+		// 3. Si no encuentro el email retorno false
+		return false;
+	}
+
+	function login($userToLogin) {
+		// 1. Sacamos del array la contraseña
+		unset($userToLogin['password']);
+
+		// 2. Guardo en SESSION al usuario
+		$_SESSION['userLogged'] = $userToLogin;
+
+		// 3. Redirecciono al perfil
+		header('location: profile.php');
+		exit;
+	}
+
+	function isLogged() {
+		return isset($_SESSION['userLogged']);
+	}
+
+
+
+	// Función para hacer DEBUG
+	function myDebug($dato) {
+		echo "<pre>";
+		var_dump($dato);
+		echo "</pre>";
 	}

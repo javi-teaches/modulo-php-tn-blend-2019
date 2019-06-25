@@ -1,4 +1,4 @@
-	<?php
+<?php
 	$pageTitle = 'Home';
 	require_once 'partials/head.php';
 ?>

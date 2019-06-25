@@ -1,1 +1,23 @@
-[{"name":"Walter White","email":"heisenberg@gmail.com","password":"$2y$10$02fif3nlLTk8gyTWSv0eXO6rBs3kB7bHnaMM77mp3bQpo4IWqO6BG","country":"ar","laImagenFinal":"data\/avatars\/img-5cf07730b1395.jpg"},{"name":"Javi Herrera","email":"javier@digitalhouse.com","password":"$2y$10$b.dnB.KV65ZsobC1w9kgoO.EPebSkdRRI7ewH1sz02ihoO0hVfgua","country":"ar","laImagenFinal":"data\/avatars\/img-5cf077c956150.jpg"},{"name":"Arya Stark","email":"arya@gmail.com","password":"$2y$10$cQUq9hensfkMEXymmBwl..EQniJ\/\/8oEb6H73jt87C7m\/L3Og6zNO","country":"ar","laImagenFinal":"data\/avatars\/img-5cf077dbe85fd.jpg"}]
+[
+    {
+        "name": "Jon Snow",
+        "email": "jon@snow.com",
+        "password": "$2y$10$YpTiPgPsms3OhhkFKm2zcuqBNk2LvAAkCVF7lH4FY0XLWmCWkFvYy",
+        "country": "ar",
+        "laImagenFinal": "data\/avatars\/img-5d129420337c2.jpg"
+    },
+    {
+        "name": "Walter White",
+        "email": "heisenberg@gmail.com",
+        "password": "$2y$10$F9L63xpAqh9l5VzvS2tUFukUfsV.UPPl2i\/XdDqJ.DDUZZb.uupwm",
+        "country": "br",
+        "laImagenFinal": "data\/avatars\/img-5d1294564ff4e.jpg"
+    },
+    {
+        "name": "Arya Stark",
+        "email": "arya@gmail.com",
+        "password": "$2y$10$\/g5W.iKF633wd6UrNF3Qhu7cy\/7pUUnVSeTmhhTu829uHpeE01c5S",
+        "country": "cl",
+        "laImagenFinal": "data\/avatars\/img-5d12998c73690.jpg"
+    }
+]

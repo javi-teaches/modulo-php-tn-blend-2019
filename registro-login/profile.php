@@ -1,8 +1,13 @@
 <?php
+	// requerimos el controlador del sistema
+	require_once 'register-login-controller.php';
 
-	require_once 'register-controller.php';
+	if ( !isLogged() ) {
+		header('location: login.php');
+		exit;
+	}
 
-	$allUsers = getAllUsers();
+	$user = $_SESSION['userLogged'];
 
 	$pageTitle = 'Profile';
 	require_once 'partials/head.php';
@@ -11,16 +16,14 @@
 
 	<div class="container">
 		<div class="row">
-			<?php foreach ($allUsers as $oneUser): ?>
-				<div class="col-md-4">
-					<br>
-					<h2>Hola <?= $oneUser['name']; ?></h2>
-					<img src="<?= $oneUser['laImagenFinal']; ?>" alt="imagen usuario">
-					<br><br>
-					<a href="#" class="btn btn-info"><?= $oneUser['email']; ?></a>
-					<a href="#" class="btn btn-danger">Editar información</a>
-				</div>
-			<?php endforeach; ?>
+			<div class="col-md-6">
+				<br>
+				<h2>Hola <?= $user['name']; ?></h2>
+				<img src="<?= $user['laImagenFinal']; ?>" alt="imagen usuario">
+				<br><br>
+				<a href="#" class="btn btn-info"><?= $user['email']; ?></a>
+				<a href="#" class="btn btn-danger">Editar información</a>
+			</div>
 		</div>
 	</div>
 
