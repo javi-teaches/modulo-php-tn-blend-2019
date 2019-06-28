@@ -8,6 +8,7 @@ En el presente repositorio se irán publicando el clase a clase de los archivos 
 - [Clase 03 - Funciones y Scope - Craftsy resuelto](/clase03/)
 - [Clase 04 - GET y POST](/clase04/)
 - [Clase 04 - Repaso - require, foreach, GET y POST](/registro-login/) *Actualizado con proceso de registro y upload image*
+- [Clase 05 - PDO](/pdo/)
 
 > *Tengan en cuenta que para poder tener este mismo repositorio en sus máquinas deberán seguir los siguientes pasos:*
 
