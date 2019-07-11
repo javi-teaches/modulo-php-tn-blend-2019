@@ -43,4 +43,4 @@ Thumbs.db
 .htaccess
 *.config
 node_modules/
-entregas/
+__entregas/

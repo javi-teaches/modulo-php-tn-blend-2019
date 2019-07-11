@@ -9,6 +9,7 @@ En el presente repositorio se irán publicando el clase a clase de los archivos 
 - [Clase 04 - GET y POST](/clase04/)
 - [Clase 04 - Repaso - require, foreach, GET y POST](/registro-login/) *Actualizado con proceso de registro y upload image*
 - [Clase 05 - PDO](/pdo/)
+- [Clase 06 - PHP + OOP - v1](/php-oop-01/)
 
 > *Tengan en cuenta que para poder tener este mismo repositorio en sus máquinas deberán seguir los siguientes pasos:*
 
